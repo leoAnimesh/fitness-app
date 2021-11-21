@@ -3,21 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import ExeciseCard from "../components/ExeciseCard";
 import { COLORS } from "../styles/constants";
-
-const FullBodyWorkOut = [
-  {
-    id: 1,
-    name: "Jumping Jacks",
-    image: "../../assets/execise.webp",
-    steps: "20x",
-  },
-  {
-    id: 2,
-    name: "Cardio",
-    image: "../../assets/execise.webp",
-    steps: "20x",
-  },
-];
+import { FullBodyWorkOut } from "../Data/FullBodyWorkout";
 
 const WorkoutList = () => {
   return (
@@ -59,8 +45,8 @@ const WorkoutList = () => {
       </View>
       <View style={{ flex: 2 }}>
         <ScrollView style={{ flex: 1 }}>
-          {FullBodyWorkOut.map((item) => (
-            <ExeciseCard item={item} />
+          {FullBodyWorkOut.map((item, idx) => (
+            <ExeciseCard key={idx} item={item} />
           ))}
         </ScrollView>
       </View>
