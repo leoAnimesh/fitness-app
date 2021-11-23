@@ -1,16 +1,16 @@
 import React from "react";
-import { StyleSheet, StatusBar, useColorScheme } from "react-native";
+import { StyleSheet } from "react-native";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/Screens/Home";
 import WorkoutList from "./src/Screens/WorkoutList";
-
+import Workout from "./src/Screens/Workout";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer theme={DefaultTheme}>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ animation: "slide_from_right" }}>
         <Stack.Screen
           name="Home"
           component={Home}
@@ -21,6 +21,13 @@ export default function App() {
         <Stack.Screen
           name="workoutList"
           component={WorkoutList}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="StartWorkout"
+          component={Workout}
           options={{
             headerShown: false,
           }}

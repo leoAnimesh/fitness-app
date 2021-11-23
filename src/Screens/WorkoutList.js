@@ -3,9 +3,9 @@ import { StatusBar } from "expo-status-bar";
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import ExeciseCard from "../components/ExeciseCard";
 import { COLORS } from "../styles/constants";
-import { FullBodyWorkOut } from "../Data/FullBodyWorkout";
 
-const WorkoutList = () => {
+const WorkoutList = ({ route, navigation }) => {
+  const { heading, title, time, cals, workouts } = route.params;
   return (
     <View style={{ flex: 1 }}>
       <StatusBar barstyle="light-content" backgroundColor={COLORS.purple} />
@@ -17,20 +17,26 @@ const WorkoutList = () => {
           alignItems: "center",
           width: "100%",
           flex: 1,
+          paddingHorizontal: 20,
           paddingTop: 20,
-          paddingLeft: 20,
         }}
       >
-        <View
-          style={{
-            width: "50%",
-          }}
-        >
-          <Text style={{ fontSize: 25, marginBottom: 20, color: "#fff" }}>
-            Full Body {"\n"}Workout
+        <View>
+          <Text
+            style={{
+              fontSize: 25,
+              paddingBottom: 20,
+              color: "#fff",
+              width: "80%",
+            }}
+          >
+            {title}
           </Text>
-          <Text style={{ fontSize: 15, marginBottom: 10 }}>⏰ 30 min</Text>
-          <Text style={{ fontSize: 15 }}>💪 19 workouts</Text>
+          <Text style={{ fontSize: 15, marginBottom: 10 }}>⏰ {time} min</Text>
+          <Text style={{ fontSize: 15, marginBottom: 10 }}>
+            💪 {workouts.length} workouts
+          </Text>
+          <Text style={{ fontSize: 15 }}>🔥 {cals} cals</Text>
         </View>
         <View style={{ width: "50%" }}>
           <Image
@@ -44,8 +50,8 @@ const WorkoutList = () => {
         </View>
       </View>
       <View style={{ flex: 2 }}>
-        <ScrollView style={{ flex: 1 }}>
-          {FullBodyWorkOut.map((item, idx) => (
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {workouts.map((item, idx) => (
             <ExeciseCard key={idx} item={item} />
           ))}
         </ScrollView>
@@ -57,6 +63,15 @@ const WorkoutList = () => {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: COLORS.blue,
+        }}
+        onPress={() => {
+          navigation.navigate("StartWorkout", {
+            heading,
+            title,
+            time,
+            cals,
+            workouts,
+          });
         }}
       >
         <Text style={{ fontSize: 15, textTransform: "uppercase" }}>Start</Text>

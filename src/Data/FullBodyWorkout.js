@@ -7,8 +7,38 @@ export const FullBodyWorkOut = [
   },
   {
     id: 2,
-    name: "Cardio",
+    name: "Incline Push-Up",
+    steps: 16,
+    time: 0,
+  },
+  {
+    id: 3,
+    name: "Knee Push-Up",
+    steps: 10,
+    time: 0,
+  },
+  {
+    id: 4,
+    name: "Push-Up",
+    steps: 15,
+    time: 0,
+  },
+  {
+    id: 5,
+    name: "Wide Arm Push-Up",
+    steps: 15,
+    time: 0,
+  },
+  {
+    id: 6,
+    name: "Cobra Stretch",
     steps: 0,
-    time: 30,
+    time: 20,
+  },
+  {
+    id: 7,
+    name: "Chest Stretch",
+    steps: 0,
+    time: 20,
   },
 ];

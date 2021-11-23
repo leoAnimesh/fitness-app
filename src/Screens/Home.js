@@ -5,16 +5,19 @@ import { Ionicons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../styles/constants";
 import Cards from "../components/Cards";
-import Catagories from "../components/Catagories";
+import { WorkoutCatagories } from "../Data/WorkoutCatagories";
 import Navbar from "../components/Navbar";
 import { StatusBar } from "expo-status-bar";
+import { TopWorkout } from "../Data/TopWorkout";
+import Catagories from "../components/Catagories";
 
 const Home = ({ navigation }) => {
   const { colors } = useTheme();
   return (
     <View style={styles.Conatiner}>
       <StatusBar barStyle="light-content" backgroundColor={colors.background} />
-      <View style={{ flex: 0.8 }}>
+
+      <View style={{ flex: 1, justifyContent: "center" }}>
         {/* top header  */}
         <View style={styles.TopHeader}>
           <Ionicons name="menu" size={24} color="black" />
@@ -30,39 +33,40 @@ const Home = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={{ flex: 1.5 }}>
-        <Text style={{ fontSize: 18, marginVertical: 10, opacity: 0.6 }}>
-          Top Workouts 💪
-        </Text>
-        {/* top workouts */}
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          style={styles.Workouts}
-        >
-          <Cards bgColor={"#99D8EF80"} navigation={navigation} />
-          <Cards bgColor={"#FDA0DD80"} />
-        </ScrollView>
-      </View>
+      <View style={{ flex: 3, justifyContent: "flex-start" }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Text style={{ fontSize: 18, marginVertical: 10, opacity: 0.6 }}>
+            Top Workouts 💪
+          </Text>
+          {/* top workouts */}
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.Workouts}
+          >
+            {TopWorkout.map((item, idx) => (
+              <Cards item={item} key={idx} navigation={navigation} />
+            ))}
+          </ScrollView>
 
-      <View style={{ flex: 1.5 }}>
-        <Text style={{ fontSize: 18, paddingBottom: 10, opacity: 0.6 }}>
-          Catagories
-        </Text>
-        {/* catgories */}
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          style={styles.Catagories}
-        >
-          <Catagories />
-          <Catagories />
-          <Catagories />
+          <Text style={{ fontSize: 18, paddingBottom: 10, opacity: 0.6 }}>
+            Catagories
+          </Text>
+          {/* catgories */}
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={styles.Catagories}
+          >
+            {WorkoutCatagories.map((item, idx) => (
+              <Catagories key={idx} item={item} navigation={navigation} />
+            ))}
+          </ScrollView>
         </ScrollView>
       </View>
 
       {/* bottom nav */}
-      <View style={{ flex: 0.2 }}>
+      <View style={{ height: 40, justifyContent: "center" }}>
         <Navbar />
       </View>
     </View>
@@ -77,7 +81,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   TopHeader: {
-    marginTop: 10,
+    marginTop: SIZES.md,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -86,7 +90,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
-    height: 50,
     marginVertical: SIZES.lg,
     paddingHorizontal: SIZES.sm,
     borderRadius: 20,

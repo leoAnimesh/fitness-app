@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import { SIZES } from "../styles/constants";
 const Navbar = () => {
   return (
     <View style={styles.container}>

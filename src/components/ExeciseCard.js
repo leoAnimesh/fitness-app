@@ -2,16 +2,17 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { COLORS } from "../styles/constants";
 
-const ExeciseCard = ({ item: { name, steps, id } }) => {
+const ExeciseCard = ({ item: { name, steps, time, id } }) => {
   return (
     <View
       style={{
         flexDirection: "row",
         alignItems: "center",
         height: 100,
+        marginHorizontal: 10,
         backgroundColor: "#D9D9D930",
         borderRadius: 10,
-        marginBottom: 5,
+        marginBottom: 10,
       }}
     >
       <TouchableOpacity
@@ -34,8 +35,10 @@ const ExeciseCard = ({ item: { name, steps, id } }) => {
         />
       </View>
       <View>
-        <Text style={{ marginBottom: 5, fontSize: 20 }}>{name}</Text>
-        <Text style={{ fontSize: 18, opacity: 0.5 }}>{steps}</Text>
+        <Text style={{ marginBottom: 5, fontSize: 15 }}>{name}</Text>
+        <Text style={{ fontSize: 18, opacity: 0.5 }}>
+          {steps === 0 ? `${time} sec` : `${steps}x`}
+        </Text>
       </View>
     </View>
   );

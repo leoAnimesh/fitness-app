@@ -1,7 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { SIZES } from "../styles/constants";
-const Cards = ({ bgColor, navigation }) => {
+const Cards = ({
+  item: { heading, title, time, cals, bgColor, workouts },
+  navigation,
+}) => {
   return (
     <View>
       <View style={[styles.Topcards, { backgroundColor: bgColor }]}>
@@ -12,15 +15,16 @@ const Cards = ({ bgColor, navigation }) => {
               paddingHorizontal: SIZES.md,
             }}
           >
-            Weight Loss Training
+            {heading}
           </Text>
           <Text
             style={{
-              fontSize: SIZES.sm,
+              fontSize: SIZES.sm + 3,
+              opacity: 0.5,
               paddingHorizontal: SIZES.md,
             }}
           >
-            Full Body Workout
+            {title}
           </Text>
           <View
             style={{
@@ -31,13 +35,21 @@ const Cards = ({ bgColor, navigation }) => {
             <TouchableOpacity
               style={styles.cardButtons}
               onPress={() => {
-                navigation.navigate("workoutList");
+                navigation.navigate("workoutList", {
+                  heading,
+                  title,
+                  time,
+                  cals,
+                  bgColor,
+                  workouts,
+                  navigation,
+                });
               }}
             >
-              <Text style={{ fontSize: 12 }}>▶ 40 min</Text>
+              <Text style={{ fontSize: 11 }}>▶ {time} min</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.cardButtons}>
-              <Text style={{ fontSize: 12 }}>🔥 Cals </Text>
+              <Text style={{ fontSize: 11 }}>🔥 {cals} Cal </Text>
             </TouchableOpacity>
           </View>
         </View>
