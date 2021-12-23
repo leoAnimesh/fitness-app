@@ -10,6 +10,7 @@ export const TopWorkout = [
     cals: 120,
     bgColor: "#99D8EF80",
     workouts: FullBodyWorkOut,
+    img: require("../../assets/fullbody.png"),
   },
   {
     heading: "Belly fat loss training",
@@ -18,6 +19,7 @@ export const TopWorkout = [
     cals: 120,
     bgColor: "#FDA0DD80",
     workouts: ABSWorkout,
+    img: require("../../assets/fullbody.png"),
   },
   {
     heading: "Arms training",
@@ -26,5 +28,6 @@ export const TopWorkout = [
     cals: 120,
     bgColor: "#AEACF980",
     workouts: ArmWorkout,
+    img: require("../../assets/fullbody.png"),
   },
 ];

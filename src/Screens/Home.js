@@ -49,7 +49,7 @@ const Home = ({ navigation }) => {
             ))}
           </ScrollView>
 
-          <Text style={{ fontSize: 18, paddingBottom: 10, opacity: 0.6 }}>
+          <Text style={{ fontSize: 18, paddingBottom: 20, opacity: 0.6 }}>
             Catagories
           </Text>
           {/* catgories */}

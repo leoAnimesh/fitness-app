@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { SIZES } from "../styles/constants";
 const Cards = ({
-  item: { heading, title, time, cals, bgColor, workouts },
+  item: { heading, title, time, cals, bgColor, workouts, img },
   navigation,
 }) => {
   return (
@@ -60,7 +60,7 @@ const Cards = ({
               width: "100%",
               resizeMode: "contain",
             }}
-            source={require("../../assets/fullbody.png")}
+            source={img}
           />
         </View>
       </View>

@@ -9,6 +9,7 @@ export const WorkoutCatagories = [
     time: 30,
     cals: 120,
     workouts: FullBodyWorkOut,
+    img: require("../../assets/fullbody.png"),
   },
   {
     heading: "Abs",
@@ -16,6 +17,7 @@ export const WorkoutCatagories = [
     time: 30,
     cals: 120,
     workouts: ABSWorkout,
+    img: require("../../assets/body.png"),
   },
   {
     heading: "Arms",
@@ -23,5 +25,6 @@ export const WorkoutCatagories = [
     time: 30,
     cals: 120,
     workouts: ArmWorkout,
+    img: require("../../assets/Arms.png"),
   },
 ];
