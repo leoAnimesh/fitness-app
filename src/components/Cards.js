@@ -1,6 +1,6 @@
-import React from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { SIZES } from "../styles/constants";
+import React from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { SIZES } from '../styles/constants';
 const Cards = ({
   item: { heading, title, time, cals, bgColor, workouts, img },
   navigation,
@@ -28,14 +28,14 @@ const Cards = ({
           </Text>
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: 'row',
               paddingHorizontal: SIZES.md,
             }}
           >
             <TouchableOpacity
               style={styles.cardButtons}
               onPress={() => {
-                navigation.navigate("workoutList", {
+                navigation.navigate('workoutList', {
                   heading,
                   title,
                   time,
@@ -57,8 +57,8 @@ const Cards = ({
           <Image
             style={{
               flex: 1,
-              width: "100%",
-              resizeMode: "contain",
+              width: '100%',
+              resizeMode: 'contain',
             }}
             source={img}
           />
@@ -70,33 +70,33 @@ const Cards = ({
 
 const styles = StyleSheet.create({
   Topcards: {
-    backgroundColor: "#99D8EF80",
+    backgroundColor: '#99D8EF80',
     borderRadius: SIZES.md,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginVertical: SIZES.md,
     width: 300,
     height: 170,
     marginRight: SIZES.sm,
   },
   CardTexts: {
-    width: "50%",
-    justifyContent: "space-evenly",
+    width: '50%',
+    justifyContent: 'space-evenly',
     height: 140,
   },
   cardButtons: {
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     width: 65,
     height: 25,
     borderRadius: SIZES.sm,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginRight: SIZES.sm,
     marginTop: SIZES.sm,
   },
   imageCard: {
-    width: "50%",
+    width: '50%',
     marginTop: SIZES.sm,
   },
 });
